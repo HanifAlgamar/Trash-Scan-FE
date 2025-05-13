@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.plain-video::-webkit-media-controls {
+    display: none !important;
+  }
+  .plain-video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+  .plain-video::-moz-media-controls {
+    display: none !important;
+  }
