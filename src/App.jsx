@@ -37,7 +37,7 @@ function App() {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('https://hanifalgamar-trash-scan.hf.space/', formData);
+      const response = await axios.post('https://hanifalgamar-trash-scan.hf.space/predict', formData);
       setResult(response.data);
       setError(null); // Hapus error jika upload berhasil
       setIsOpen(true); // buka popup setelah berhasil
