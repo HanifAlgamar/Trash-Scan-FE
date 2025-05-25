@@ -1,0 +1,129 @@
+[
+{
+    "type": "plastic",
+    "data":[{
+        "product_name": "Produk A",
+        "link": "https://lestari.kompas.com/read/2023/07/12/110000686/6-cara-kreatif-daur-ulang-botol-plastik-di-rumah?page=all" 
+    },
+    {
+        "product_name": "Produk B",
+        "link": "https://www.inilah.com/10-ide-daur-ulang-sampah-plastik-yang-fungsional-dan-mudah-dibuat" 
+    },
+    {
+        "product_name": "Produk C",
+        "link": "https://ukmindonesia.id/baca-deskripsi-posts/tips-mendaur-ulang-dan-memanfaatkan-kembali-limbah-plastik" 
+    },
+    {
+        "product_name": "Produk D",
+        "link": "https://pabriktalirafia.com/10-kreasi-daur-ulang-sampah-plastik-yang-mudah-dibuat" 
+    },
+    {
+        "product_name": "Produk E",
+        "link": "https://www.margasari.desa.id/daur-ulang-plastik-cara-mudah-membuat-karya-seni-dari-botol-bekas" 
+    },
+    {
+        "product_name": "Produk F",
+        "link": "https://www.youtube.com/watch?v=WQCevNdGOUs" 
+    }]
+    
+},
+{
+    "type": "metal",
+    "data":[{
+        "product_name": "Produk A",
+        "link": "https://www.tiktok.com/@sedihrianahyadi/video/7140676171972349210" 
+    },
+    {
+        "product_name": "Produk B",
+        "link": "https://visual.republika.co.id/berita/n8hnlj/pengrajin-kaleng-bekas-daur-ulang" 
+    },
+    {
+        "product_name": "Produk C",
+        "link": "https://www.hipwee.com/tips/11-daur-ulang-kaleng-bekas/" 
+    },
+    {
+        "product_name": "Produk D",
+        "link": "https://www.hipwee.com/tips/11-daur-ulang-kaleng-bekas/" 
+    },
+    {
+        "product_name": "Produk E",
+        "link": "https://go-pena.com/kerajinan-dari-kaleng/" 
+    }]    
+},
+{
+    "type": "biological",
+    "data":[{
+        "product_name": "Produk A",
+        "link": "https://sustaination.id/apa-itu-kompos/" 
+    },
+    {
+        "product_name": "Produk B",
+        "link": "https://www.kompasiana.com/ayudia1238629/64f9764208a8b57e2604f112/mengolah-sampah-organik-menjadi-pakan-ternak-pengertian-dan-manfaat" 
+    },
+    {
+        "product_name": "Produk C",
+        "link": "https://www.kompas.com/homey/read/2022/06/02/112800876/cara-membuat-pupuk-organik-cair-dari-sampah-dapur" 
+    },
+    {
+        "product_name": "Produk D",
+        "link": "https://www.rri.co.id/lain-lain/716452/bio-komposter-tips-mengolah-sampah-organik-menjadi-pupuk" 
+    },
+    {
+        "product_name": "Produk E",
+        "link": "https://dlh.bulelengkab.go.id/informasi/detail/artikel/10_daur-ulang-sampah-organik-menjadi-kompos" 
+    }]
+},
+{
+    "type": "battery",
+    "data":[{
+        "product_name": "Produk A",
+        "link": "https://www.youtube.com/watch?v=D4xiMNjtm-s" 
+    },
+    {
+        "product_name": "Produk B",
+        "link": "https://www.youtube.com/watch?v=q-Su2iYZf24" 
+    },
+    {
+        "product_name": "Produk C",
+        "link": "https://www.youtube.com/watch?v=2v0_fg9K-gU" 
+    },
+    {
+        "product_name": "Produk D",
+        "link": "https://www.youtube.com/watch?v=gofScFEwsS8" 
+    },
+    {
+        "product_name": "Produk E",
+        "link": "https://www.youtube.com/watch?v=am5JZWnEFBM" 
+    }]   
+},
+{
+    "type": "clothes",
+    "data":[{
+        "product_name": "Produk A",
+        "link": "https://www.youtube.com/watch?v=64b14VuIMww" 
+    },
+    {
+        "product_name": "Produk B",
+        "link": "https://www.youtube.com/watch?v=wY1IdU86kZc" 
+    },
+    {
+        "product_name": "Produk C",
+        "link": "https://www.youtube.com/watch?v=EpF14NJtkhA" 
+    },
+    {
+        "product_name": "Produk D",
+        "link": "https://suryawiki.tribunnews.com/2021/02/10/cara-mendaur-ulang-pakaian-bekas-jadi-keset-ala-bank-klambi-sobung-sarka" 
+    },
+    {
+        "product_name": "Produk E",
+        "link": "https://liberty-society.com/id/blogs/blog-1/cara-membuat-tas-dari-celana-jeans-bekas-tanpa-dijahit" 
+    }]   
+}         
+
+]
+
+
+
+
+
+
