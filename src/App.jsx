@@ -260,7 +260,7 @@ function App() {
                      setKameraAktif(false);
                      setError(null); // Hapus error saat kamera dibatalkan
                   }}
-                  className="bg-red-500 text-white px-5 py-2 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-opacity-75 shadow-sm text-sm font-semibold"
+                  className="bg-red-500 text-white px-5 py-2 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-75 shadow-sm text-sm font-semibold" /* MODIFIED: focus:ring-emerald-300 to focus:ring-red-300 */
                 >
                   Batal
                 </button>
@@ -325,8 +325,8 @@ function App() {
 
         {/* Modal hasil klasifikasi */}
         {isOpen && result && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 mx-4 relative animate-fadeIn">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4"> {/* MODIFIED: Added p-4 */}
+            <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 mx-auto relative animate-fadeIn max-h-[90vh] overflow-y-auto"> {/* MODIFIED: Added max-h-[90vh] overflow-y-auto, changed mx-4 to mx-auto */}
 
               <button
                 onClick={() => setIsOpen(false)}
