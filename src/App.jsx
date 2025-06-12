@@ -41,7 +41,7 @@ function App() {
       // Cek jika tingkat kepercayaan <= 85%
       if (response.data.confidence <= 0.85) {
         // Tampilkan error di pop-up jika kepercayaan rendah
-        setError('Maaf, tidak dapat melakukan klasifikasi karena tingkat kepercayaan terlalu rendah. Harap coba lagi dengan gambar yang lebih jelas.');
+        setError('Maaf, tidak dapat melakukan klasifikasi karena tingkat kepercayaan rendah atau jenis sampah tidak dikenali. Harap coba lagi.');
         setResult(null); 
         setIsOpen(false); 
       } else {
