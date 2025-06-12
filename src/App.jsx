@@ -27,25 +27,36 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleUpload = async () => {
-  if (!selectedFile) {
-  setError('Silakan masukkan atau ambil gambar terlebih dahulu.');
-  return;
-  }
-
-
+    if (!selectedFile) {
+      setError('Silakan masukkan atau ambil gambar terlebih dahulu.');
+      return;
+    }
+  
     const formData = new FormData();
     formData.append('file', selectedFile);
-
+  
     try {
       const response = await axios.post('https://hanifalgamar-trash-scan.hf.space/predict', formData);
-      setResult(response.data);
-      setError(null); // Hapus error jika upload berhasil
-      setIsOpen(true); // buka popup setelah berhasil
-    } catch (err) { 
-      setError('Gagal melakukan klasifikasi. Silakan coba lagi.');
+      
+      // Cek jika tingkat kepercayaan <= 85%
+      if (response.data.confidence <= 0.85) {
+        // Tampilkan error di pop-up jika kepercayaan rendah
+        setError('Maaf, tidak dapat melakukan klasifikasi karena tingkat kepercayaan terlalu rendah. Harap coba lagi dengan gambar yang lebih jelas.');
+        setResult(null); 
+        setIsOpen(false); 
+      } else {
+        // Jika lebih dari 85%, tampilkan hasil
+        setResult(response.data);
+        setError(null); // Hapus error jika upload berhasil
+        setIsOpen(true); // Buka popup setelah berhasil
+      }
+    } catch (err) {
+      // Tampilkan error di pop-up jika gagal terhubung
+      setError('Gagal melakukan klasifikasi. Silakan periksa koneksi Anda dan coba lagi.');
       console.error(err);
     }
   };
+
 
   const [kameraAktif, setKameraAktif] = useState(false);
   const webcamRef = useRef(null);
@@ -64,7 +75,7 @@ function App() {
       const file = new File([blob], "captured-image.jpg", { type: mimeString });
       setSelectedFile(file);
       setKameraAktif(false);
-      setResult(null); 
+      setResult(null);
       setError(null); // Hapus error saat foto diambil
     }
   };
@@ -260,7 +271,7 @@ function App() {
                      setKameraAktif(false);
                      setError(null); // Hapus error saat kamera dibatalkan
                   }}
-                  className="bg-red-500 text-white px-5 py-2 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-75 shadow-sm text-sm font-semibold" /* MODIFIED: focus:ring-emerald-300 to focus:ring-red-300 */
+                  className="bg-red-500 text-white px-5 py-2 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-75 shadow-sm text-sm font-semibold"
                 >
                   Batal
                 </button>
@@ -313,20 +324,33 @@ function App() {
           </button>
         </div>
 
-        {/* Tempat untuk menampilkan pesan error */}
-        <div className="min-h-[24px] mt-5">
-          {error && (
-            <p className="text-red-600 text-md text-center font-medium bg-red-100 px-4 py-2 rounded-md shadow">
-              {error}
-            </p>
-          )}
-        </div>
-
+        {/* Modal untuk menampilkan pesan error */}
+        {error && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 mx-auto relative animate-fadeIn text-center">
+              <div className="mx-auto flex items-center justify-center h-14 w-14 rounded-full bg-red-100 mb-5">
+                <svg className="h-8 w-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">Terjadi Kesalahan</h3>
+              <p className="text-gray-600 text-md mb-8">
+                {error}
+              </p>
+              <button
+                onClick={() => setError(null)}
+                className="w-full bg-red-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-red-600 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:scale-105"
+              >
+                Coba Lagi
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Modal hasil klasifikasi */}
         {isOpen && result && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4"> {/* MODIFIED: Added p-4 */}
-            <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 mx-auto relative animate-fadeIn max-h-[90vh] overflow-y-auto"> {/* MODIFIED: Added max-h-[90vh] overflow-y-auto, changed mx-4 to mx-auto */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 mx-auto relative animate-fadeIn max-h-[90vh] overflow-y-auto">
 
               <button
                 onClick={() => setIsOpen(false)}
